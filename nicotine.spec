@@ -1,5 +1,4 @@
 
-%include        /usr/lib/rpm/macros.python
 Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
