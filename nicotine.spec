@@ -9,7 +9,7 @@ License:	GPL
 Vendor:		Hyriand <hyriand@thegraveyard.org>
 Group:		X11/Applications
 Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	c3e2ff7fc991c35cb9219bcadb6ac672
+# Source0-md5:	78fd209bd0bbdc6e84c7a140c9e0ac7a
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine.thegraveyard.org/
