@@ -27,7 +27,11 @@ things, a completely rewritten graphical user interface which uses
 PyGTK-2 toolkit and a less strict user request policy.
 
 %description -l pl
-Nicotine jest klientem sieci SoulSeek bazuj±cym na PySoulSeek.
+Nicotine jest napisanym w Pythonie klientem sieci SoulSeek bazuj±cym
+na projekcie PySoulSeek autorstwa Alexandra Kanavina. Zawiera on m.in.
+napisany ca³kowicie od nowa graficzny interfejs u¿ytkownika, który
+korzysta z PyGTK-2 oraz ma mniej restrykcyjn± politykê zapytañ
+u¿ytkowników.
 
 %prep
 %setup -q
