@@ -14,7 +14,6 @@ Patch0:		%{name}-po.patch
 URL:		http://nicotine.thegraveyard.org/
 BuildRequires:	gettext-devel
 BuildRequires:	python-devel > 2.2
-BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-libs
 Requires:	python-numpy
 Requires:	python-pygtk-gtk >= 2.0.0
