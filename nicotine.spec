@@ -19,6 +19,7 @@ BuildArch:	noarch
 Requires:	python-wxPython >= 2.4.0
 Requires:	python-pyvorbis
 Requires:	python-pygtk-gtk >= 2.0.0
+Requires:	python-numpy
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
