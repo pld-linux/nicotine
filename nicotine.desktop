@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=nicotine
+Comment=SoulSeek client for Linux
+Exec=nicotine
+Icon=nicotine.png
+Terminal=false
+Type=Application
+Categories=Application;Network;
