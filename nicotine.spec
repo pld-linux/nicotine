@@ -43,7 +43,7 @@ u¿ytkowników.
 
 %build
 python setup.py build
-/usr/sbin/msgfmt -o languages/pl/nicotine.mo languages/pl/nicotine.po
+/usr/bin/msgfmt -o languages/pl/nicotine.mo languages/pl/nicotine.po
 
 %install
 rm -rf $RPM_BUILD_ROOT
