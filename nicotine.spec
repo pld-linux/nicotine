@@ -4,7 +4,7 @@ Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
 Version:	1.0.7
-Release:	2
+Release:	3
 License:	GPL
 Vendor:		Hyriand <hyriand@thegraveyard.org>
 Group:		X11/Applications
@@ -39,6 +39,8 @@ u¿ytkowników.
 
 %prep
 %setup -q 
+
+mv -f languages/{dk,da}
 
 %build
 python setup.py build
