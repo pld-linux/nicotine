@@ -18,6 +18,7 @@ BuildRequires:	python-devel > 2.2
 BuildRequires:	rpm-pythonprov
 BuildRequires:	gettext-devel
 BuildArch:	noarch
+%pyrequires_eq	python-libs
 Requires:	python-wxPython >= 2.4.0
 Requires:	python-pyvorbis
 Requires:	python-pygtk-gtk >= 2.0.0
@@ -62,7 +63,6 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
