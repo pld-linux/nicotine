@@ -18,7 +18,7 @@ BuildRequires:	rpm-pythonprov
 BuildArch:	noarch
 Requires:	python-wxPython >= 2.4.0
 Requires:	python-pyvorbis
-Requires:	python-pygtk >= 1.99.16
+Requires:	python-pygtk-gtk >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
