@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=nicotine
+Name=Nicotine
 Comment=SoulSeek client for Linux
 Comment[pl]=Klient sieci SoulSeek dla Linuksa
 Exec=nicotine
 Icon=nicotine.png
 Terminal=false
 Type=Application
-Categories=Application;Network;
+Categories=GTK;Network;FileTransfer;
 # vi: encoding=utf-8
