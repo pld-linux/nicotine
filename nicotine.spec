@@ -3,13 +3,13 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.0.4.1
-Release:	1
+Version:	1.0.6
+Release:	0.rc1.1
 License:	GPL
 Vendor:		Hyriand <hyriand@thegraveyard.org>
 Group:		X11/Applications
-Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	bc89054d83eb9785e78a59b84ae3dc4e
+Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}rc1.tar.bz2
+# Source0-md5:	af811a21a7381956c6fdfcba652f8a5d
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine.thegraveyard.org/
@@ -36,7 +36,7 @@ korzysta z PyGTK-2 oraz ma mniej restrykcyjn± politykê zapytañ
 u¿ytkowników.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}rc1
 
 %build
 python setup.py build
