@@ -3,13 +3,13 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	GPL
 Vendor:		Hyriand <hyriand@thegraveyard.org>
 Group:		X11/Applications
 Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	78fd209bd0bbdc6e84c7a140c9e0ac7a
+# Source0-md5:	7512091fc85a6ab0499647c59fead465
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine.thegraveyard.org/
