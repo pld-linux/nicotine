@@ -1,4 +1,3 @@
-
 Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
@@ -13,15 +12,15 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-po.patch
 URL:		http://nicotine.thegraveyard.org/
+BuildRequires:	gettext-devel
 BuildRequires:	python-devel > 2.2
 BuildRequires:	rpm-pythonprov
-BuildRequires:	gettext-devel
-BuildArch:	noarch
 %pyrequires_eq	python-libs
-Requires:	python-wxPython >= 2.4.0
-Requires:	python-pyvorbis
-Requires:	python-pygtk-gtk >= 2.0.0
 Requires:	python-numpy
+Requires:	python-pygtk-gtk >= 2.0.0
+Requires:	python-pyvorbis
+Requires:	python-wxPython >= 2.4.0
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +37,7 @@ korzysta z PyGTK-2 oraz ma mniej restrykcyjn± politykê zapytañ
 u¿ytkowników.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 mv -f languages/{dk,da}
@@ -67,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG KNOWN_BUGS MAINTAINERS README README.import-winconfig TODO
 %attr(755,root,root) %{_bindir}/*
+# XXX: not noarch!
 %{py_scriptdir}/site-packages/pynicotine
 %{_desktopdir}/*
 %{_pixmapsdir}/*
