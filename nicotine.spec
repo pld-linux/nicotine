@@ -3,13 +3,13 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.0.6
+Version:	1.0.7
 Release:	1
 License:	GPL
 Vendor:		Hyriand <hyriand@thegraveyard.org>
 Group:		X11/Applications
 Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	0c5f5fd621b97539ccf2f1d804c74b2c
+# Source0-md5:	09f2681bd8890da3749c15e90b9ca7c7
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-plpo.patch
@@ -39,7 +39,6 @@ u¿ytkowników.
 
 %prep
 %setup -q 
-%patch0 -p1
 
 %build
 python setup.py build
@@ -65,6 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG KNOWN_BUGS MAINTAINERS README README.import-winconfig TODO
 %attr(755,root,root) %{_bindir}/*
-%{py_sitedir}/pynicotine
+%{py_scriptdir}/site-packages/pynicotine
 %{_desktopdir}/*
 %{_pixmapsdir}/*
