@@ -15,7 +15,7 @@ URL:		http://nicotine.thegraveyard.org/
 BuildRequires:	gettext-devel
 BuildRequires:	python-devel > 2.2
 %pyrequires_eq	python-libs
-Requires:	python-numpy
+Requires:	python-Numeric
 Requires:	python-pygtk-gtk >= 2.0.0
 Requires:	python-pyvorbis
 Requires:	python-wxPython >= 2.4.0
@@ -65,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGELOG KNOWN_BUGS MAINTAINERS README README.import-winconfig TODO
 %attr(755,root,root) %{_bindir}/*
-# XXX: not noarch!
-%{py_scriptdir}/site-packages/pynicotine
+%{py_sitescriptdir}/pynicotine
 %{_desktopdir}/*
 %{_pixmapsdir}/*
