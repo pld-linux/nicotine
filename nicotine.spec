@@ -1,5 +1,5 @@
 Summary:	Client for SoulSeek filesharing system
-Summary(pl):	Klient sieci SoulSeek
+Summary(pl.UTF-8):   Klient sieci SoulSeek
 Name:		nicotine
 Version:	1.0.8
 Release:	1
@@ -28,12 +28,12 @@ PySoulSeek project by Alexander Kanavin. It features, among other
 things, a completely rewritten graphical user interface which uses
 PyGTK-2 toolkit and a less strict user request policy.
 
-%description -l pl
-Nicotine jest napisanym w Pythonie klientem sieci SoulSeek bazuj±cym
+%description -l pl.UTF-8
+Nicotine jest napisanym w Pythonie klientem sieci SoulSeek bazujÄ…cym
 na projekcie PySoulSeek autorstwa Alexandra Kanavina. Zawiera on m.in.
-napisany ca³kowicie od nowa graficzny interfejs u¿ytkownika, który
-korzysta z PyGTK-2 oraz ma mniej restrykcyjn± politykê zapytañ
-u¿ytkowników.
+napisany caÅ‚kowicie od nowa graficzny interfejs uÅ¼ytkownika, ktÃ³ry
+korzysta z PyGTK-2 oraz ma mniej restrykcyjnÄ… politykÄ™ zapytaÅ„
+uÅ¼ytkownikÃ³w.
 
 %prep
 %setup -q
