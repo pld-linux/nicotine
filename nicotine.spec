@@ -1,5 +1,5 @@
 Summary:	Client for SoulSeek filesharing system
-Summary(pl.UTF-8):   Klient sieci SoulSeek
+Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
 Version:	1.0.8
 Release:	1
