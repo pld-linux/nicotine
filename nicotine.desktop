@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Nicotine
+Name=Nicotine+
 Comment=SoulSeek client for Linux
 Comment[pl]=Klient sieci SoulSeek dla Linuksa
 Exec=nicotine
