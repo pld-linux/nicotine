@@ -1,19 +1,18 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.0.8
+Version:	1.2.7
 Release:	1
 License:	GPL
-Vendor:		Hyriand <hyriand@thegraveyard.org>
+Vendor:		daelstorm <daelstorm@users.sourceforge.net>
 Group:		X11/Applications
-Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	2392a74dc5be09a062ba77ec4a041e99
+Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.tar.bz2
+# Source0-md5:	09c41ba320f61b70ee1ee8840fbf1a1d
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-po.patch
-URL:		http://nicotine.thegraveyard.org/
+URL:		http://nicotine-plus.sourceforge.net/
 BuildRequires:	gettext-devel
-BuildRequires:	python-devel > 2.2
+BuildRequires:	python-devel > 2.3
 %pyrequires_eq	python-libs
 Requires:	python-Numeric
 Requires:	python-pygtk-gtk >= 2.0.0
@@ -23,21 +22,20 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Nicotine is a SoulSeek client written in Python, based on the
-PySoulSeek project by Alexander Kanavin. It features, among other
-things, a completely rewritten graphical user interface which uses
-PyGTK-2 toolkit and a less strict user request policy.
+Nicotine-Plus is a fork of Hyriand's original Nicotine Soulseek client.
+Nicotine+ is an attempt to keep Nicotine working with the latest libraries,
+kill bugs, keep current with the Soulseek protocol and add some new features
+that users want and/or need.
 
 %description -l pl.UTF-8
-Nicotine jest napisanym w Pythonie klientem sieci SoulSeek bazującym
-na projekcie PySoulSeek autorstwa Alexandra Kanavina. Zawiera on m.in.
-napisany całkowicie od nowa graficzny interfejs użytkownika, który
-korzysta z PyGTK-2 oraz ma mniej restrykcyjną politykę zapytań
-użytkowników.
+Nicotine-Plus jest pochodną Nicotine, klienta sieci Soulseek autorstwa
+Hyrianda. Projekt Nicotine+ ma na celu utrzymywanie kodu w zgodności
+z najnowszymi bibliotekami i protokołem Soulseeka, eliminowanie błędów oraz
+dodawanie nowych funkcjonalności, których potrzebują lub życzą sobie
+użytkownicy.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{name}+-%{version}
 
 mv -f languages/{dk,da}
 
@@ -50,11 +48,13 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install -d $RPM_BUILD_ROOT%{_docdir}/%{version}
 
 python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+mv $RPM_BUILD_ROOT%{_datadir}/%{name}/documentation $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %find_lang %{name}
 
@@ -63,8 +63,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGELOG KNOWN_BUGS MAINTAINERS README README.import-winconfig TODO
+%doc %{_docdir}/*
 %attr(755,root,root) %{_bindir}/*
+%{_datadir}/%{name}
 %{py_sitescriptdir}/pynicotine
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
+%{_mandir}/man1/*
