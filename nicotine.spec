@@ -48,7 +48,7 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT%{_docdir}/%{version}
+install -d $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
