@@ -69,7 +69,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{py_sitescriptdir}/pynicotine
-%{py_sitescriptdir}/*.egg-info
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
