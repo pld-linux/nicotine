@@ -1,13 +1,13 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.2.7
+Version:	1.2.8
 Release:	1
 License:	GPL
 Vendor:		daelstorm <daelstorm@users.sourceforge.net>
 Group:		X11/Applications
 Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.tar.bz2
-# Source0-md5:	09c41ba320f61b70ee1ee8840fbf1a1d
+# Source0-md5:	f839436968fc6c07fe0cb5c1d045fe62
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine-plus.sourceforge.net/
@@ -67,6 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{py_sitescriptdir}/pynicotine
+%{py_sitescriptdir}/*.egg-info
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
