@@ -10,6 +10,7 @@ Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.ta
 # Source0-md5:	f839436968fc6c07fe0cb5c1d045fe62
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-import.patch
 URL:		http://nicotine-plus.sourceforge.net/
 BuildRequires:	gettext-devel
 BuildRequires:	python-devel > 2.3
@@ -36,6 +37,7 @@ użytkownicy.
 
 %prep
 %setup -q -n %{name}+-%{version}
+%patch0 -p0
 
 mv -f languages/{dk,da}
 
