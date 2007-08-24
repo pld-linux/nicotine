@@ -1,44 +1,41 @@
-
 Summary:	Client for SoulSeek filesharing system
-Summary(pl):	Klient sieci SoulSeek
+Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.0.7
-Release:	4
+Version:	1.2.8
+Release:	1
 License:	GPL
-Vendor:		Hyriand <hyriand@thegraveyard.org>
+Vendor:		daelstorm <daelstorm@users.sourceforge.net>
 Group:		X11/Applications
-Source0:	http://nicotine.thegraveyard.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	09f2681bd8890da3749c15e90b9ca7c7
+Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.tar.bz2
+# Source0-md5:	f839436968fc6c07fe0cb5c1d045fe62
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-po.patch
-URL:		http://nicotine.thegraveyard.org/
-BuildRequires:	python-devel > 2.2
-BuildRequires:	rpm-pythonprov
+URL:		http://nicotine-plus.sourceforge.net/
 BuildRequires:	gettext-devel
-BuildArch:	noarch
-Requires:	python-wxPython >= 2.4.0
-Requires:	python-pyvorbis
+BuildRequires:	python-devel > 2.3
+%pyrequires_eq	python-libs
+Requires:	python-Numeric
 Requires:	python-pygtk-gtk >= 2.0.0
-Requires:	python-numpy
+Requires:	python-pyvorbis
+Requires:	python-wxPython >= 2.4.0
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Nicotine is a SoulSeek client written in Python, based on the
-PySoulSeek project by Alexander Kanavin. It features, among other
-things, a completely rewritten graphical user interface which uses
-PyGTK-2 toolkit and a less strict user request policy.
+Nicotine-Plus is a fork of Hyriand's original Nicotine Soulseek client.
+Nicotine+ is an attempt to keep Nicotine working with the latest libraries,
+kill bugs, keep current with the Soulseek protocol and add some new features
+that users want and/or need.
 
-%description -l pl
-Nicotine jest napisanym w Pythonie klientem sieci SoulSeek bazuj±cym
-na projekcie PySoulSeek autorstwa Alexandra Kanavina. Zawiera on m.in.
-napisany ca³kowicie od nowa graficzny interfejs u¿ytkownika, który
-korzysta z PyGTK-2 oraz ma mniej restrykcyjn± politykê zapytañ
-u¿ytkowników.
+%description -l pl.UTF-8
+Nicotine-Plus jest pochodnÄ… Nicotine, klienta sieci Soulseek autorstwa
+Hyrianda. Projekt Nicotine+ ma na celu utrzymywanie kodu w zgodnoÅ›ci
+z najnowszymi bibliotekami i protokoÅ‚em Soulseeka, eliminowanie bÅ‚Ä™dÃ³w oraz
+dodawanie nowych funkcjonalnoÅ›ci, ktÃ³rych potrzebujÄ… lub Å¼yczÄ… sobie
+uÅ¼ytkownicy.
 
 %prep
-%setup -q 
-%patch0 -p1
+%setup -q -n %{name}+-%{version}
 
 mv -f languages/{dk,da}
 
@@ -51,22 +48,26 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 install -d $RPM_BUILD_ROOT%{_pixmapsdir}
+install -d $RPM_BUILD_ROOT%{_docdir}/%{version}
 
 python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+mv $RPM_BUILD_ROOT%{_datadir}/%{name}/documentation $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGELOG KNOWN_BUGS MAINTAINERS README README.import-winconfig TODO
+%doc %{_docdir}/*
 %attr(755,root,root) %{_bindir}/*
-%{py_scriptdir}/site-packages/pynicotine
-%{_desktopdir}/*
+%{_datadir}/%{name}
+%{py_sitescriptdir}/pynicotine
+%{py_sitescriptdir}/*.egg-info
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
+%{_mandir}/man1/*
