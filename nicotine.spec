@@ -12,10 +12,10 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine-plus.sourceforge.net/
 BuildRequires:	gettext-devel
-BuildRequires:	python-devel > 2.3
+BuildRequires:	python-devel > 1:2.5
 %pyrequires_eq	python-libs
 Requires:	python-Numeric
-Requires:	python-pygtk-gtk >= 2.0.0
+Requires:	python-pygtk-gtk >= 2:2.0.0
 Requires:	python-pyvorbis
 Requires:	python-wxPython >= 2.4.0
 BuildArch:	noarch
