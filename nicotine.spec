@@ -11,7 +11,7 @@ Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.ta
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 URL:		http://nicotine-plus.sourceforge.net/
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	python-devel > 1:2.5
 %pyrequires_eq	python-libs
 Requires:	python-Numeric
