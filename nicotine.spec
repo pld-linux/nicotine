@@ -1,60 +1,46 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	1.2.8
+Version:	3.1.1
 Release:	1
 License:	GPL
-Vendor:		daelstorm <daelstorm@users.sourceforge.net>
 Group:		X11/Applications
-Source0:	http://prdownloads.sourceforge.net/nicotine-plus/%{name}+-%{version}.tar.bz2
-# Source0-md5:	f839436968fc6c07fe0cb5c1d045fe62
-Source1:	%{name}.desktop
-Source2:	%{name}.png
+Source0:	https://github.com/nicotine-plus/nicotine-plus/archive/refs/tags/%{version}.tar.gz
 URL:		http://nicotine-plus.sourceforge.net/
 BuildRequires:	gettext-tools
-BuildRequires:	python-devel > 1:2.5
-%pyrequires_eq	python-libs
-Requires:	python-Numeric
-Requires:	python-pygtk-gtk >= 2:2.0.0
-Requires:	python-pyvorbis
-Requires:	python-wxPython >= 2.4.0
+BuildRequires:	python3-devel
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Nicotine-Plus is a fork of Hyriand's original Nicotine Soulseek client.
-Nicotine+ is an attempt to keep Nicotine working with the latest libraries,
-kill bugs, keep current with the Soulseek protocol and add some new features
-that users want and/or need.
+Nicotine-Plus is a fork of Hyriand's original Nicotine Soulseek
+client. Nicotine+ is an attempt to keep Nicotine working with the
+latest libraries, kill bugs, keep current with the Soulseek protocol
+and add some new features that users want and/or need.
 
 %description -l pl.UTF-8
 Nicotine-Plus jest pochodną Nicotine, klienta sieci Soulseek autorstwa
-Hyrianda. Projekt Nicotine+ ma na celu utrzymywanie kodu w zgodności
-z najnowszymi bibliotekami i protokołem Soulseeka, eliminowanie błędów oraz
-dodawanie nowych funkcjonalności, których potrzebują lub życzą sobie
-użytkownicy.
+Hyrianda. Projekt Nicotine+ ma na celu utrzymywanie kodu w zgodności z
+najnowszymi bibliotekami i protokołem Soulseeka, eliminowanie błędów
+oraz dodawanie nowych funkcjonalności, których potrzebują lub życzą
+sobie użytkownicy.
 
 %prep
-%setup -q -n %{name}+-%{version}
+%setup -q -n %{name}-plus-%{version}
 
-mv -f languages/{dk,da}
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
 
 %build
-python setup.py build
-/usr/bin/msgfmt -o languages/it/nicotine.mo languages/it/nicotine.po
-/usr/bin/msgfmt -o languages/nl/nicotine.mo languages/nl/nicotine.po
+%py3_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
-install -d $RPM_BUILD_ROOT%{_pixmapsdir}
-install -d $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
-python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
-
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-mv $RPM_BUILD_ROOT%{_datadir}/%{name}/documentation $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+%py3_install
 
 %find_lang %{name}
 
@@ -65,9 +51,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc %{_docdir}/*
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
-%{py_sitescriptdir}/pynicotine
-%{py_sitescriptdir}/*.egg-info
+%{py3_sitescriptdir}/pynicotine
+%{py3_sitescriptdir}/*.egg-info
 %{_desktopdir}/*.desktop
-%{_pixmapsdir}/*
 %{_mandir}/man1/*
+%{_iconsdir}/hicolor/scalable/apps/*.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.nicotine_plus.Nicotine-symbolic.svg
+%{_datadir}/metainfo/org.nicotine_plus.Nicotine.metainfo.xml
