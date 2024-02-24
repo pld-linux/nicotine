@@ -1,15 +1,15 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	3.2.9
+Version:	3.3.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	https://github.com/nicotine-plus/nicotine-plus/archive/refs/tags/%{version}.tar.gz
-# Source0-md5:	b75586f6d6680e40068c9973b6978e57
-URL:		http://nicotine-plus.sourceforge.net/
+# Source0-md5:	e19050ba67a4c4ad090b99bd57eb6b7f
+URL:		https://nicotine-plus.org/
 BuildRequires:	gettext-tools
-BuildRequires:	python3-devel
+BuildRequires:	python3-devel >= 1:3.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,15 +42,11 @@ sobie użytkownicy.
 rm -rf $RPM_BUILD_ROOT
 
 %py3_install
-# unsupported locale
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,nb_NO}
-
-%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{py3_sitescriptdir}/pynicotine
@@ -59,7 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_iconsdir}/hicolor/*x*/apps/org.nicotine_plus.Nicotine.png
 %{_iconsdir}/hicolor/scalable/apps/*.svg
-%{_iconsdir}/hicolor/scalable/intl/*.svg
-%{_iconsdir}/hicolor/scalable/status/*.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.nicotine_plus.Nicotine-symbolic.svg
 %{_datadir}/metainfo/org.nicotine_plus.Nicotine.appdata.xml
