@@ -1,12 +1,12 @@
 Summary:	Client for SoulSeek filesharing system
 Summary(pl.UTF-8):	Klient sieci SoulSeek
 Name:		nicotine
-Version:	3.3.6
+Version:	3.3.7
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	https://github.com/nicotine-plus/nicotine-plus/archive/refs/tags/%{version}.tar.gz
-# Source0-md5:	32e8addc7b1412a6adc2e7063c5b0887
+# Source0-md5:	16348c385d0796bf45ad532d3463eaa9
 URL:		https://nicotine-plus.org/
 BuildRequires:	gettext-tools
 BuildRequires:	python3-devel >= 1:3.6
